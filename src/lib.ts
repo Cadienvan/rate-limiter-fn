@@ -2,7 +2,12 @@ import { defaultOptions } from './defaults';
 import { RateLimitOptions } from './models';
 
 export function rateLimit(fn: Function, options?: Partial<RateLimitOptions>) {
-  const { timeFrameInMs, limit, identifierFn, exceptionHandler } = {
+  const {
+    interval,
+    limit,
+    identifierFn,
+    onLimitReached
+  } = {
     ...defaultOptions,
     ...options
   };
@@ -13,21 +18,21 @@ export function rateLimit(fn: Function, options?: Partial<RateLimitOptions>) {
       : JSON.stringify(fn);
     const now = Date.now();
     const history = callHistory.get(identifier) || [];
-    const callsInTimeFrame = history.filter(
-      (callTime: number) => now - callTime < timeFrameInMs
+    const callsInInterval = history.filter(
+      (callTime: number) => now - callTime < interval
     );
-    if (callsInTimeFrame.length >= limit) {
-      if (!exceptionHandler)
+    if (callsInInterval.length >= limit) {
+      if (!onLimitReached)
         throw new Error(`Rate limit exceeded for ${identifier}`);
       else
-        return exceptionHandler({
-          timeFrameInMs,
+        return onLimitReached({
+          interval,
           limit,
           identifierFn,
-          exceptionHandler
+          onLimitReached
         });
     }
-    callHistory.set(identifier, [...callsInTimeFrame, now]);
+    callHistory.set(identifier, [...callsInInterval, now]);
     return fn(...args);
   };
 }

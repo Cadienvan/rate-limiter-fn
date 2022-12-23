@@ -1,6 +1,6 @@
 export type RateLimitOptions = {
-  timeFrameInMs: number;
+  interval: number;
   limit: number;
   identifierFn: Function | undefined;
-  exceptionHandler: Function | undefined;
+  onLimitReached: Function | undefined;
 };

@@ -1,74 +1,47 @@
 # What is this?
 
-A simple scaffolding tool for creating a new project to be published to npm.  
-It provides a build command that will compile your code to a CommonJS Node 14.16 target, allowing named imports for CommonJS packages inside ESM files.  
-The package contains a simple "hello world" based on TypeScript, built on esbuild, tested through Jest and linted with ESLint and Prettier.  
-It also provides a Husky pre-commit hook to run some linting based on prettier and eslint and run tests, so you can simple `git add` and `git commit` without worrying about anything else.
+A higher-order function to provide a Rate Limiting mechanism to the given function.
 
-## How To Install?
+# How do I install it?
 
 ```bash
-git clone git://github.com/Cadienvan/npm-package-ts-scaffolding.git package_name
-cd package_name
-npm install
-npx husky install
+npm install rate-limiter-fn
 ```
 
-## What do you mean by `allowing named imports from CommonJS`?
+# How can I use it?
 
-If you try to run `npm run build` you will be able to import the `sayHello` function from the `index.js` file, both via `require` and `import` syntax.
+```javascript
+const rateLimiter = require('rate-limiter-fn');
 
-### Importing via `require`
+const rateLimitedFn = rateLimiter(fn, {
+  limit: 10,
+  interval: 1000,
+});
 
-```js
-const { sayHello } = require('my-package');
+rateLimitedFn();
 ```
 
-### Importing via `import`
+# API
 
-```js
-import { sayHello } from 'my-package';
-```
+The module exports a single function (`rateLimit`) that takes two arguments:
 
-# Why did you build it?
+- `fn` - The function to be rate limited.
+- `options` - An object with the following properties:
+  - `limit` - The number of times the function can be called within the given interval.
+  - `interval` - The interval in milliseconds.
+  - `onLimitReached` - A function that will be called when the limit is reached. It will be called with the following arguments:
+    - `limit` - The limit that was reached.
+    - `interval` - The interval that was reached.
+    - `fn` - The function that was rate limited.
+    - `args` - The arguments that were passed to the function.
+  - `identifierFn` - A function that will be called to get the identifier for the rate limit. It will be called with the following arguments:
+    - `fn` - The function that was rate limited.
+    - `args` - The arguments that were passed to the function.
 
-I got tired of copying and pasting the same files over and over again.  
-This is a simple tool to create a new project with the basic files needed to publish to npm.
+# Tests
 
-# How can I personalize it?
-
-You can change the `package.json` file to your liking, bringing your own package name and description.  
-Please, remember to give me a star if you like the project!
-
-# What's Inside?
-
-- Typescript
-- Jest
-- Eslint
-- Prettier
-- Husky
-- Esbuild
-- Commitlint
-
-# How to push and release an update?
-
-```bash
-git add --all
-git commit -m "chore: update package"
-npm run release:patch
-```
-
-Remember to follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) standard.
-You can substitute `patch` with `minor` or `major` to update the version accordingly.
-
-# How to run tests?
+You can run the tests by using the following command:
 
 ```bash
 npm test
 ```
-
-# Contributing
-
-If you want to contribute to this project, please open an issue or a pull request.  
-I will be happy to review it and merge it if it's useful.  
-Please, remember to follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) standard.  

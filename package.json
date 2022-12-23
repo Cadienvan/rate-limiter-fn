@@ -1,5 +1,5 @@
 {
-  "name": "rate-limit-fn",
+  "name": "rate-limiter-fn",
   "description": "A higher-order function to provide a Rate Limiting mechanism to the given function.",
   "private": false,
   "version": "1.0.0",
@@ -56,7 +56,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Cadienvan/rate-limit-fn.git"
+    "url": "git://github.com/Cadienvan/rate-limiter-fn.git"
   },
   "license": "MIT",
   "author": "Michael Di Prisco <cadienvan@gmail.com>",

@@ -2,12 +2,7 @@ import { defaultOptions } from './defaults';
 import { RateLimitOptions } from './models';
 
 export function rateLimit(fn: Function, options?: Partial<RateLimitOptions>) {
-  const {
-    interval,
-    limit,
-    identifierFn,
-    onLimitReached
-  } = {
+  const { interval, limit, identifierFn, onLimitReached } = {
     ...defaultOptions,
     ...options
   };

@@ -21,10 +21,8 @@ export function rateLimit(fn: Function, options?: Partial<RateLimitOptions>) {
         throw new Error(`Rate limit exceeded for ${identifier}`);
       else
         return onLimitReached({
-          interval,
-          limit,
-          identifierFn,
-          onLimitReached
+          identifier,
+          args,
         });
     }
     callHistory.set(identifier, [...callsInInterval, now]);

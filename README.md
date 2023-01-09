@@ -30,9 +30,7 @@ The module exports a single function (`rateLimit`) that takes two arguments:
   - `limit` - The number of times the function can be called within the given interval.
   - `interval` - The interval in milliseconds.
   - `onLimitReached` - A function that will be called when the limit is reached. It will be called with the following arguments:
-    - `limit` - The limit that was reached.
-    - `interval` - The interval that was reached.
-    - `fn` - The function that was rate limited.
+    - `identifier` - The identifier for the rate limit. This is the value returned by the `identifierFn` option if given, otherwise it is the function itself.
     - `args` - The arguments that were passed to the function.
   - `identifierFn` - A function that will be called to get the identifier for the rate limit. It will be called with the following arguments:
     - `fn` - The function that was rate limited.

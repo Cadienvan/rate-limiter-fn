@@ -1,3 +1,10 @@
+#### 1.2.1 (2023-04-22)
+
+##### Continuous Integration
+
+*  Added Node 20 in ci test matrix ([25215eb3](https://github.com/Cadienvan/rate-limiter-fn/commit/25215eb33dfd295781d39960d639b2b4500abd82))
+*  Added Node CI ([52fd826a](https://github.com/Cadienvan/rate-limiter-fn/commit/52fd826a4be65f4935ca9c63a6faf3bd2cc68fbd))
+
 ### 1.2.0 (2023-01-09)
 
 ##### Chores

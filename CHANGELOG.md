@@ -1,3 +1,9 @@
+#### 1.2.2 (2023-12-27)
+
+##### Chores
+
+*  update dependencies ([f33cd452](https://github.com/Cadienvan/rate-limiter-fn/commit/f33cd452381028e5ba292151ccd0634fe15cb3fe))
+
 #### 1.2.1 (2023-04-22)
 
 ##### Continuous Integration

@@ -31,7 +31,7 @@ it('should not throw if a rate limited function is called with different identif
   const rateLimitedFn = rateLimit(simpleFn, {
     limit: 1,
     interval: 1000,
-    identifierFn: (a: number, b: number) => a
+    identifierFn: (a: number) => a
   });
   rateLimitedFn(1, 2);
   rateLimitedFn(2, 2);
@@ -41,7 +41,7 @@ it('should throw if a rate limited function is called with same identifier', () 
   const rateLimitedFn = rateLimit(simpleFn, {
     limit: 1,
     interval: 1000,
-    identifierFn: (a: number, b: number) => a
+    identifierFn: (a: number) => a
   });
   rateLimitedFn(1, 2);
   expect(() => rateLimitedFn(1, 3)).toThrow();

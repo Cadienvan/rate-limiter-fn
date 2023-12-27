@@ -1,3 +1,18 @@
+#### 1.2.3 (2023-12-27)
+
+##### Chores
+
+*  update dependencies ([f33cd452](https://github.com/Cadienvan/rate-limiter-fn/commit/f33cd452381028e5ba292151ccd0634fe15cb3fe))
+
+##### Documentation Changes
+
+*  updated changelog ([72a6ed55](https://github.com/Cadienvan/rate-limiter-fn/commit/72a6ed55d27cf6fcfb054c008717e6af17e9ece5))
+
+##### Tests
+
+*  fixing unused var ([ce19b3aa](https://github.com/Cadienvan/rate-limiter-fn/commit/ce19b3aabfc43144e93839b94fa7bb6786742bc7))
+*  fixing unused var ([0114e406](https://github.com/Cadienvan/rate-limiter-fn/commit/0114e40607487e2655aa98cd433c4b8e019295d1))
+
 #### 1.2.2 (2023-12-27)
 
 ##### Chores

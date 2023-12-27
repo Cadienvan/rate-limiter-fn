@@ -22,7 +22,7 @@ export function rateLimit(fn: Function, options?: Partial<RateLimitOptions>) {
       else
         return onLimitReached({
           identifier,
-          args,
+          args
         });
     }
     callHistory.set(identifier, [...callsInInterval, now]);
